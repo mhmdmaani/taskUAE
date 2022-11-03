@@ -55,34 +55,38 @@ const MainContainer = styled.div`
   width: 100%;
   margin-top: - 150vh;
 `;
+const TimelineContainer = styled.div`
+  width: 100%;
+  margin-top: 340px;
+  `;
 
 function OurProcess() {
    
     const ref=useRef(null);
   return (
     <MainContainer>
-    <Container >
-      <Grid container>
-        <Grid item xs={12} sm={12} md={6} lg={6}>
-          <OurProcessSammury />
-        </Grid>
+      <Container>
+        <Grid container>
+          <Grid item xs={12} sm={12} md={6} lg={6}>
+            <OurProcessSammury />
+          </Grid>
 
-        <Grid item xs={12} sm={12} md={6} lg={6}>
-          <div ref={ref}>
-            {items.map((item, index) => (
-              <TimelineItem
-                key={item.id}
-                title={item.title}
-                caption={item.caption}
-                number={index + 1}
-                isLast={index === items.length - 1}
-                description={item.description}
-              />
-            ))}
-          </div>
+          <Grid item xs={12} sm={12} md={6} lg={6}>
+            <TimelineContainer ref={ref}>
+              {items.map((item, index) => (
+                <TimelineItem
+                  key={item.id}
+                  title={item.title}
+                  caption={item.caption}
+                  number={index + 1}
+                  isLast={index === items.length - 1}
+                  description={item.description}
+                />
+              ))}
+            </TimelineContainer>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
     </MainContainer>
   );
 }

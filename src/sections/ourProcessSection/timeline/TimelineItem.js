@@ -6,7 +6,7 @@ import {useWindowScrollPositions} from '../../../hooks/useWindowScrollPosition';
 const StyledContainer = styled.div`
   width: 100%;
   position: relative;
-  margin-left: 100px;
+  padding-left: 100px;
   height: 100%;
   padding-top:2.5rem
   `;
@@ -86,11 +86,11 @@ const StyledContainer = styled.div`
       line-height: 1.5rem;
       color: ${(props) => (props.isStart ? '#707070' : '#A0A0A0')};
       font-weight: 400;
-      width: calc(100% - 50px);
       text-align: left;
       margin-top: 1rem;
       paddiing-top: 2rem;
       padding-left: 1rem;
+      width: calc(100% - 150px);
     `;
 
 

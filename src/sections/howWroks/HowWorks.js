@@ -52,6 +52,7 @@ const items = [
 
 const StyledContainer = styled.div`
   width: 100%;
+  overflow: hidden;
   height: calc(${(props) => (props.itemsLength-1) * 100}vh - 900px);
 `;
 
@@ -60,7 +61,7 @@ const StyledFixedContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh);
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -2,29 +2,30 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import SlideCard from './SlideCard';
 import SlideImage from '../../../images/slideImage.svg';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 const slides = [
   {
     image: SlideImage,
     title: 'Portland Multi-Family Financing',
-    objective: 'Lorem ipsum dolor sit amet',
-    focus: 'Lorem ipsum dolor sit amet',
-    minInvest: 'Lorem ipsum dolor sit amet',
+    objective: 'Income',
+    focus: 'Real Estate',
+    minInvest: '$10K',
   },
 
   {
     image: SlideImage,
     title: 'Slide 1',
     objective: 'Slide 2',
-    focus: 'Lorem ipsum dolor sit amet',
-    minInvest: 'Lorem ipsum dolor sit amet',
+    focus: 'Real Estate',
+    minInvest: '$10K',
   },
   {
     image: SlideImage,
     title: 'Slide 3',
-    objective: 'Lorem ipsum dolor sit amet',
-    focus: 'Lorem ipsum dolor sit amet',
-    minInvest: 'Lorem ipsum dolor sit amet',
+    objective: 'Income',
+    focus: 'Real Estate',
+    minInvest: '$10K',
   },
 ];
 
@@ -35,6 +36,8 @@ const StyledContainer = styled.div`
   min-width: 300px;
   min-height: 600px;
   overflow-x: hidden;
+  margin-left: -2rem;
+  margin-top: 2rem;
 `;
 
 const StyledMainContainer = styled.div`
@@ -42,24 +45,13 @@ const StyledMainContainer = styled.div`
   height: 100%;
   padding: 0 2rem;
 `;
-const SliderButtons = styled.div`
-    position: absolute;
-    top calc(50%);
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-`
 
 const MovableCards = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
     transition: transform 1s ease-in-out;
-    transform: translateX(-${(props) => props.currentSlide * 10}%);
+    transform: translateX(-${(props) => props.currentSlide *22}%);
     `
 
 
@@ -88,6 +80,9 @@ function Slider({isStarted}) {
     }
    };
 
+
+
+ 
   return (
     <StyledMainContainer>
       <StyledDescription isStarted={isStarted}>
@@ -118,17 +113,12 @@ function Slider({isStarted}) {
               index={index}
               currentSlide={currentSlide}
               onDragCard={onDragCard}
+              onGoNext={()=>setCurrentSlide(currentSlide+1)}
+              onGoPrev={()=>setCurrentSlide(currentSlide-1)}
+              itemsLength={items.length}
             />
           ))}
         </MovableCards>
-        <SliderButtons>
-          <button onClick={() => setCurrentSlide(currentSlide - 1)}>
-            Prev
-          </button>
-          <button onClick={() => setCurrentSlide(currentSlide + 1)}>
-            Next
-          </button>
-        </SliderButtons>
       </StyledContainer>
     </StyledMainContainer>
   );
