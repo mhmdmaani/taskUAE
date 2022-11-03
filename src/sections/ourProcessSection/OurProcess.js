@@ -7,33 +7,41 @@ import TimelineItem from './timeline/TimelineItem';
 
 
 const items = [
-    {
-        id: 1,
-        title: 'Open your account',
-        description: 'Open an account in minutes online and start investing today.',
-        number: '1',
-    },
-    {
-        id: 2,
-        title: 'getAccess to the investing app',
-        description: 'Get your investing app on your phone or tablet.',
-        number: '2',
-    },
-    {
-        id: 3,
-        title: 'Invest in stocks',
-        description: 'Open an account in minutes online and start investing today.',
-        number: '3',
-    },
-    {
-        id: 4,
+  {
+    id: 1,
+    title: 'Open your account',
+    description: 'Open an account in minutes online and start investing today.',
+    number: '1',
+  },
+  {
+    id: 2,
+    title: 'getAccess to the investing app',
+    description: 'Get your investing app on your phone or tablet.',
+    number: '2',
+  },
+  {
+    id: 3,
+    title: 'Invest in stocks',
+    description: 'Open an account in minutes online and start investing today.',
+    number: '3',
+  },
+  {
+    id: 4,
 
-        title: ' Get your Consulting in time',
+    title: ' Get your Consulting in time',
 
-        description: 'We provide you with the best consulting services.',
-        number: '4',
-    }
-]
+    description: 'We provide you with the best consulting services.',
+    number: '4',
+  },
+  {
+    id: 5,
+
+    title: ' Get your Consulting in time',
+
+    description: 'We provide you with the best consulting services.',
+    number: '5',
+  },
+];
 function OurProcess() {
    
     const ref=useRef(null);
