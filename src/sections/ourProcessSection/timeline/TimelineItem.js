@@ -62,7 +62,7 @@ const StyledContainer = styled.div`
 
     const StyledLine = styled.div`
       width: 2px;
-      height: 115%;
+      height: 110%;
       background-color: #c3c3c3;
       position: absolute;
       left: -21px;
