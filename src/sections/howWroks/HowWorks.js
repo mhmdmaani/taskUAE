@@ -75,7 +75,7 @@ function HowWorks() {
       const index = Math.floor(
         (position.scrollY - startingPoint - 200) / (threshold * items.length -1)
       );
-      if(index>=0 && index<=items.length - 1){
+      if(index>=0 && index<items.length - 1){
       setCurrentIndex(index);
       }
       setIsShow(true);
@@ -85,10 +85,9 @@ function HowWorks() {
 
   const onScrollToSection = (index) => {
     setCurrentIndex(index);
-    console.log(index);
-    const threshold = 100;
+    const threshold = 150;
        const startingPoint = ref.current.offsetTop;
-       const endingPoint = ref.current.scrollTop + ref.current.clientHeight;
+      
          const scrollY = startingPoint + (ref.current.clientHeight/items.length) * index+threshold;
   window.scrollTo(0, scrollY);
 
@@ -97,7 +96,7 @@ function HowWorks() {
     <StyledContainer ref={ref} itemsLength={items.length}>
       <StyledFixedContainer isFixed={isShow}>
         <Container >
-          <Grid container>
+          <Grid container >
             <Grid item lg={10} md={10} sm={12}>
               <Descriptions
                 items={items}

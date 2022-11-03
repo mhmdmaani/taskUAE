@@ -49,6 +49,7 @@ const StyledIndicator = styled.div`
   }
   @media (max-width: 1024px) {
     transform: scaleX(${(props) => (props.current ? '2' : '0')});
+    display:none;
   }
 `;
 function Numbers({ items, currentIndex, onScroll }) {

@@ -51,18 +51,20 @@ const StyledButton = styled.button`
 `;
 function OurProcessSammury() {
   return (
-    <StyledContainer> 
-        <StyledCaption>Our Process</StyledCaption>
-        <StyledTitle>We have our own process for success</StyledTitle>
-        <StyledDescription>
-            We are a team of experienced professionals with a passion for
-            technology and a desire to help businesses grow. We are a team of
-            experienced professionals with a passion for technology and a desire
-            to help businesses grow.
-        </StyledDescription>
-        <StyledButton>Learn More</StyledButton>
+    <StyledContainer>
+      <StyledCaption>Our Process</StyledCaption>
+      <StyledTitle>
+        From the market to your portfolio, here's how it all happens
+      </StyledTitle>
+      <StyledDescription>
+        We are a team of experienced professionals with a passion for technology
+        and a desire to help businesses grow. We are a team of experienced
+        professionals with a passion for technology and a desire to help
+        businesses grow.
+      </StyledDescription>
+      <StyledButton>Learn More</StyledButton>
     </StyledContainer>
-  )
+  );
 }
 
 export default OurProcessSammury

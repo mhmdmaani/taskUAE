@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import Grid from '@mui/material/Grid';
 import {useWindowScrollPositions} from '../../../hooks/useWindowScrollPosition';
 
 
