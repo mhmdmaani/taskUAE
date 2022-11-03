@@ -21,11 +21,7 @@ const StyledContainer = styled.div`
 
    const StyledTitle = styled.div`
      font-size: 1rem;
-     color: ${(props) => (props.isStart ? '#2276ff' : '#151515')};
      font-weight: 400;
-     position: absolute;
-     left: -100px;
-     top: 2rem;
    `;
 
     const StyledIndecatior = styled.div`
@@ -45,7 +41,7 @@ const StyledContainer = styled.div`
 
     const StyledLine = styled.div`
       width: 2px;
-      height: 105%;
+      height: 115%;
       background-color: #c3c3c3;
       position: absolute;
       left: -21px;
@@ -69,14 +65,27 @@ const StyledContainer = styled.div`
     line-height: 1.5rem;
     color: #6d6d6d;
     font-weight: 400;
-    width: 70%;
+    width: calc(100% - 50px);
     text-align: left;
     margin-top: 1rem;
     paddiing-top: 2rem;
     padding-left: 1rem;
     `;
 
-function TimelineItem({title, number, description, isLast}) {
+
+    const StyledCaption = styled.div`
+      font-size: 1rem;
+      color: ${(props) => (props.isStart ? '#2276ff' : '#151515')};
+      font-weight: 400;
+      position: absolute;
+      left: -150px;
+      width:100px;
+      top: 1.7rem;
+    `;
+
+
+
+function TimelineItem({title, number, description,caption, isLast}) {
      const {scrollY} = useWindowScrollPositions();   
      const ref = React.useRef(null);
         const [progress, setProgress] = React.useState(0);
@@ -85,9 +94,9 @@ function TimelineItem({title, number, description, isLast}) {
         React.useEffect(() => {
              const startingPos = ref.current?.offsetTop ;
                 const progress =
-                  scrollY - startingPos + ref.current?.offsetHeight;
-                   isLast? setProgress(progress+800):  setProgress(progress);
-                if(progress > 0) {
+                  scrollY - startingPos + ref.current?.offsetHeight + 500;
+                   isLast? setProgress(progress+100):  setProgress(progress);
+                if(progress > 10) {
                     setIsStart(true);
                 }
                 else{
@@ -99,11 +108,13 @@ function TimelineItem({title, number, description, isLast}) {
   return (
     <StyledContainer ref={ref}>
       <StyledIndecatorSection>
-        <StyledTitle isStart={isStart}>{title}</StyledTitle>
+        <StyledCaption isStart={isStart}>{caption}</StyledCaption>
         <StyledLine progress={progress}></StyledLine>
         <StyledIndecatior isStart={isStart}>{number}</StyledIndecatior>
       </StyledIndecatorSection>
-      <StyledDescription>{description}</StyledDescription>
+      <StyledDescription>
+           <StyledTitle>{title}</StyledTitle>
+        {description}</StyledDescription>
     </StyledContainer>
   );
 }

@@ -56,11 +56,6 @@ const DescriptionText = styled.div`
 `
 
 
-const StyledGridContainer = styled(Grid)`
-    transition: all 0.7s ease-in-out;
-    transform: ${({ isCenterHovered }) => isCenterHovered && 'scaleX(1.12)'};
-    position: relative;
-`;
 
 function Solutions() {
   const [hoveredCard, setHoveredCard] = React.useState(null);
@@ -104,7 +99,7 @@ function Solutions() {
         tempor netus mattis. Mauris faucibus eget habitant nunc,
       </DescriptionText>
 
-      <StyledGridContainer isCenterHovered={isHoverCentered} container>
+      <Grid isCenterHovered={isHoverCentered} container>
         {solutions.map((solution, index) => (
           <Grid
             key={index}
@@ -126,7 +121,7 @@ function Solutions() {
             />
           </Grid>
         ))}
-      </StyledGridContainer>
+      </Grid>
     </Container>
   );
 }

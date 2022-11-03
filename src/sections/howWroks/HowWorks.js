@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useWindowScrollPositions } from '../../hooks/useWindowScrollPosition';
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
 import { Container } from '@mui/system';
 import { Grid } from '@mui/material';
 import Descriptions from './Descriptions';
@@ -11,41 +11,51 @@ const items = [
     id: 1,
     caption: 'How it works',
     title: 'Open your account',
-    description: 'Open an account in minutes online and start investing today.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sapien mollis elit sit praesent facilisis vivamus at habitant. Neque, condimentum maecenas laoreet id.',
     number: '01',
   },
   {
     id: 2,
     caption: 'How it works',
-    title: 'getAccess to the investing app',
-    description: 'Get your investing app on your phone or tablet.',
+    title: 'Get access to the investing app',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sapien mollis elit sit praesent facilisis vivamus at habitant. Neque, condimentum maecenas laoreet id.',
     number: '02',
   },
   {
     id: 3,
     caption: 'How it works',
     title: 'Invest in stocks',
-    description: 'Open an account in minutes online and start investing today.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sapien mollis elit sit praesent facilisis vivamus at habitant. Neque, condimentum maecenas laoreet id.',
     number: '03',
-    
   },
-    {
+  {
     id: 4,
     caption: 'How it works',
     title: ' Get your Consulting in time',
-    description: 'We provide you with the best consulting services.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sapien mollis elit sit praesent facilisis vivamus at habitant. Neque, condimentum maecenas laoreet id.',
     number: '04',
-    }
+  },
 ];
 
 const StyledContainer = styled.div`
   width: 100%;
-  height: ${(props) => props.itemsLength * 100}vh;
+  height: calc(${(props) => (props.itemsLength-1) * 100}vh - 500px);
   overflow: hidden;
 `;
-
+const showAnimation = keyframes`
+ 0% { 
+      opacity: 1;
+  }
+ 100% {
+   poaition: fixed;
+ }
+`;
 const StyledFixedContainer = styled.div`
-  position: ${(props) => (props.isFixed === true ? 'fixed' : 'relative')};
+  position: ${ (props) => props.isFixed ? 'fixed' : 'relative'};
   top: 0;
   left: 0;
   width: 100%;
@@ -54,6 +64,7 @@ const StyledFixedContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: all 1s ease-in-out;
 `;
 
 
@@ -63,25 +74,30 @@ function HowWorks() {
   const [isShow, setIsShow] = React.useState(false);
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
+
+
   useEffect(() => {
     const threshold = 100;
     // get top and bottom position of the element
     const startingPoint = ref.current.offsetTop;
     const endingPoint = ref.current.scrollTop + ref.current.clientHeight;
     // check if the element is in the viewport
-    if (position.scrollY <= startingPoint || position.scrollY >= endingPoint) {
+    if (position.scrollY <= startingPoint || position.scrollY >= endingPoint - threshold) {
       setIsShow(false);
     } else {
       const index = Math.floor(
-        (position.scrollY - startingPoint - 200) / (threshold * items.length -1)
+        (position.scrollY - startingPoint ) / (threshold * (items.length-1))
       );
-      if(index>=0 && index<items.length - 1){
+      if(index>=0 && index< items.length){
       setCurrentIndex(index);
+       setIsShow(true);
+      }else{
+        setIsShow(false);
       }
-      setIsShow(true);
+     
     }
   }, [position]);
-
+    
 
   const onScrollToSection = (index) => {
     setCurrentIndex(index);
@@ -94,7 +110,8 @@ function HowWorks() {
   }
   return (
     <StyledContainer ref={ref} itemsLength={items.length}>
-      <StyledFixedContainer isFixed={isShow}>
+      <StyledFixedContainer isFixed={isShow && currentIndex>=0 && currentIndex<=items.length-1 }>
+    
         <Container >
           <Grid container >
             <Grid item lg={10} md={10} sm={12}>

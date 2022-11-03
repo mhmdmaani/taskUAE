@@ -3,16 +3,18 @@ import React from 'react';
 import styled from 'styled-components';
 import MultipleFlipTitle from '../../components/flipTitle/MultipleFlipTitle';
 
-const StyledTitle = styled.div`
-  font-size: 4rem;
+const StyledTag = styled.div`
+  font-size: 3.3rem;
   color: #2276ff;
   font-weight: 700;
   width: 100%;
  
 `;
 
+
+
 const StyledDescription = styled.div`
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #6d6d6d;
   font-weight: 400;
   width: 70%;
@@ -33,17 +35,19 @@ const StyledCaption = styled.div`
     font-size: 1.5rem;
     font-weight: 500;
     color: #000;
+    margin-bottom:1.1rem;
+    text-transform: uppercase;
     `;
 
     const StyledSpacer = styled.div`
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding-top: 0.7rem;
+      padding-bottom: 0.7rem;
     `;
 
 function Descriptions({ items, currentIndex }) {
      const isMobile = useMediaQuery('(max-width: 1024)');
      const flippedTitleHeight = isMobile ? 50 : 80;
-     const flippedDescriptionHeight = isMobile ? 150 : 100;
+     const flippedDescriptionHeight = isMobile ? 150 : 150;
   return (
     <StyledContainer>
       <StyledCaption>{items[currentIndex].caption}</StyledCaption>
@@ -52,7 +56,7 @@ function Descriptions({ items, currentIndex }) {
         height={flippedTitleHeight}
         texts={items.map((c) => ({
           id: c.id,
-          text: <StyledTitle>{c.title}</StyledTitle>,
+          text: <StyledTag>{c.title}</StyledTag>,
         }))}
         currentIndex={currentIndex}
       />
@@ -61,7 +65,8 @@ function Descriptions({ items, currentIndex }) {
         height={flippedDescriptionHeight}
         texts={items.map((c) => ({
           id: c.id,
-          text: <StyledDescription>{c.description}</StyledDescription>,
+          text: <StyledDescription>
+            {c.description}</StyledDescription>,
         }))}
         currentIndex={currentIndex}
       />

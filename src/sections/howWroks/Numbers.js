@@ -17,7 +17,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyledNumber = styled.button`
-  font-size: 4rem;
+  font-size: ${(props) => (props.current ? '4.5rem' : '2.75rem')};
   color: ${(props) => (props.current ? '#2276ff' : '#D0D0D0')};
   font-weight: 700;
   width: 100%;
@@ -28,8 +28,12 @@ const StyledNumber = styled.button`
   cursor: pointer;
   transition: all 0.5s ease;
   @media (max-width: 1024px) {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  @media (max-width: 892px) {
+    font-size: 1rem;
+    width: auto;
   }
 `;
 
