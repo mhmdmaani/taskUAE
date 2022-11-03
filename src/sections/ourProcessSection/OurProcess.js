@@ -9,7 +9,7 @@ import TimelineItem from './timeline/TimelineItem';
 const items = [
   {
     id: 1,
-    caption:'Origination',
+    caption: 'Origination',
     title: 'Offerings are passed through a rigourous screening process',
     description:
       'Finstreet develops partnerships with originators through a stringent screening process. The Finstreet investment process takes a long-term view, looking for partners whom Finstreet and our investors can grow with beyond any given opportunity.',
@@ -17,7 +17,7 @@ const items = [
   },
   {
     id: 2,
-    caption:'Due diligence',
+    caption: 'Due diligence',
     title: 'Next up: Finstreet’s internal due diligence review',
     description:
       'The investment team conducts their review and analysis of the investment opportunity, and if the team is comfortable with the opportunity, it will then go through the investment committees. During committee review, experienced investment professionals unassociated with the opportunity provide a fresh perspective and challenge the investment team’s thesis hoping to identify any potential risks.',
@@ -25,14 +25,14 @@ const items = [
   },
   {
     id: 3,
-    caption:'Investment',
-    title: 'Open offerings',
-    description: <Slider/>,
+    caption: 'Investment',
+    title: 'Investors decide based on the needs of their portfolio',
+    description: <Slider />,
     number: '3',
   },
   {
     id: 4,
-    caption:'Performance',
+    caption: 'Performance',
     title: 'Track and monitor your alternative portfolio',
     description:
       'Typically, prior to the end of an investments term, performance will be reported to investors along the way. For debt investments, interest payments are often paid out on a monthly or quarterly basis and for certain equity deals, income payments may also be made. Behind the scenes, Yieldstreet’s Portfolio & Risk Management Team constantly monitors the investments and identifies any performance that has changed from initial underwriting.',
@@ -40,10 +40,11 @@ const items = [
   },
   {
     id: 5,
-    caption:'Repayment and maturity',
+    caption: 'Repayment and maturity',
     title: 'Get more returns on your returns',
 
-    description: 'Whether a debt deal is maturing and the borrower is paying back principal or a commercial real estate property was just sold for a gain, after a successful investment your original principal and any associated gains will be returned to your Yieldstreet Wallet But, don’t let your money stay idle. One of the most important aspects to outperforming public markets is to keep your money invested and not to let it sit in cash. Consider investing in your next opportunity on Finstreet.',
+    description:
+      'Whether a debt deal is maturing and the borrower is paying back principal or a commercial real estate property was just sold for a gain, after a successful investment your original principal and any associated gains will be returned to your Yieldstreet Wallet But, don’t let your money stay idle. One of the most important aspects to outperforming public markets is to keep your money invested and not to let it sit in cash. Consider investing in your next opportunity on Finstreet.',
     number: '5',
   },
 ];

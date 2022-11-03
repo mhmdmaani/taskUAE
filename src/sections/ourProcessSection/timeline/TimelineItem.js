@@ -8,6 +8,7 @@ const StyledContainer = styled.div`
   position: relative;
   margin-left: 100px;
   height: 100%;
+  padding-top:2.5rem
   `;
 
   const StyledIndecatorSection = styled.div`
@@ -21,14 +22,17 @@ const StyledContainer = styled.div`
 
    const StyledTitle = styled.div`
      font-size: 1rem;
-     font-weight: 400;
+     font-weight: 600;
+     color:${props=>props.isStart?'#151515':'#6d6d6d'};
+     margin-bottom: 1rem;
+     margin-top: 1.6rem;
    `;
 
     const StyledIndecatior = styled.div`
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background-color: ${(props) => (props.isStart ? '#2276ff' : '#c3c3c3')};
+      background-color: #c3c3c3;
       color: #ffffff;
       position: absolute;
       top: 20px;
@@ -37,6 +41,23 @@ const StyledContainer = styled.div`
       justify-content: center;
       align-items: center;
       transition: all 0.5s ease-in-out;
+      overflow: hidden;
+      ::before {
+        content: '${(props) => props.number}';
+        position: absolute;
+        display: flex;
+        font-weight: 600;
+        justify-content: center;
+        align-items: center;
+        top: ${(props) => (props.isStart ? '0' : '-100%')};
+        transition: all 0.5s ease-in;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        z-index: 1;
+        background-color: #2276ff;
+        border-radius: 100%;
+      }
     `;
 
     const StyledLine = styled.div`
@@ -61,21 +82,21 @@ const StyledContainer = styled.div`
 
 
     const StyledDescription = styled.div`
-    font-size: 1rem;
-    line-height: 1.5rem;
-    color: #6d6d6d;
-    font-weight: 400;
-    width: calc(100% - 50px);
-    text-align: left;
-    margin-top: 1rem;
-    paddiing-top: 2rem;
-    padding-left: 1rem;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: ${(props) => (props.isStart ? '#707070' : '#A0A0A0')};
+      font-weight: 400;
+      width: calc(100% - 50px);
+      text-align: left;
+      margin-top: 1rem;
+      paddiing-top: 2rem;
+      padding-left: 1rem;
     `;
 
 
     const StyledCaption = styled.div`
       font-size: 1rem;
-      color: ${(props) => (props.isStart ? '#2276ff' : '#151515')};
+      color:  #151515;
       font-weight: 400;
       position: absolute;
       left: -150px;
@@ -88,33 +109,50 @@ const StyledContainer = styled.div`
 function TimelineItem({title, number, description,caption, isLast}) {
      const {scrollY} = useWindowScrollPositions();   
      const ref = React.useRef(null);
+     const indecatorRef = React.useRef(null);
+
+
         const [progress, setProgress] = React.useState(0);
         const [isStart, setIsStart] = React.useState(false);
 
         React.useEffect(() => {
-             const startingPos = ref.current?.offsetTop ;
-                const progress =
-                  scrollY - startingPos + ref.current?.offsetHeight + 500;
-                   isLast? setProgress(progress+100):  setProgress(progress);
-                if(progress > 10) {
-                    setIsStart(true);
-                }
-                else{
-                    setIsStart(false);
-                }
+             const startingPos = ref.current?.offsetTop -600;
+              
+             if(scrollY > startingPos){
+                // setIsStart(true);
+                 setProgress(scrollY - startingPos);
+             }
+             if(scrollY > startingPos){
+                 setIsStart(true);
+             }else{
+              setIsStart(false);
+             }
+
+               
+              
         }, [scrollY]);
 
 
   return (
-    <StyledContainer ref={ref}>
+    <StyledContainer isLast={isLast} ref={ref}>
       <StyledIndecatorSection>
         <StyledCaption isStart={isStart}>{caption}</StyledCaption>
-        <StyledLine progress={progress}></StyledLine>
-        <StyledIndecatior isStart={isStart}>{number}</StyledIndecatior>
+        {isLast ? null : (
+         <StyledLine progress={progress}></StyledLine>)}
+        
+        <StyledIndecatior
+          ref={indecatorRef}
+          progress={scrollY - indecatorRef.current?.offsetTop}
+          isStart={isStart}
+          number={number}
+        >
+          {number}
+        </StyledIndecatior>
       </StyledIndecatorSection>
-      <StyledDescription>
-           <StyledTitle>{title}</StyledTitle>
-        {description}</StyledDescription>
+      <StyledDescription isStart={isStart}>
+        <StyledTitle isStart={isStart}>{title}</StyledTitle>
+        {description}
+      </StyledDescription>
     </StyledContainer>
   );
 }

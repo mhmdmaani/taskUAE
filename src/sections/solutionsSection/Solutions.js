@@ -107,7 +107,7 @@ function Solutions() {
             lg={4}
             md={4}
             sm={12}
-            padding={2}
+            padding={3}
             style={{ position: 'relative' }}
           >
             <TransformedCard

@@ -45,7 +45,7 @@ const LearnMore = styled.div`
 
 const NumberDiv = styled.div`
     color: ${(props) => props.color};
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 800;
     position: absolute;
     bottom: 20px;

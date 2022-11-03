@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useWindowScrollPositions } from '../../hooks/useWindowScrollPosition';
-import styled,{keyframes} from 'styled-components';
+import styled from 'styled-components';
 import { Container } from '@mui/system';
 import { Grid } from '@mui/material';
 import Descriptions from './Descriptions';
@@ -46,14 +46,7 @@ const StyledContainer = styled.div`
   height: calc(${(props) => (props.itemsLength-1) * 100}vh - 500px);
   overflow: hidden;
 `;
-const showAnimation = keyframes`
- 0% { 
-      opacity: 1;
-  }
- 100% {
-   poaition: fixed;
- }
-`;
+
 const StyledFixedContainer = styled.div`
   position: ${ (props) => props.isFixed ? 'fixed' : 'relative'};
   top: 0;
@@ -69,6 +62,7 @@ const StyledFixedContainer = styled.div`
 
 
 function HowWorks() {
+
   const position = useWindowScrollPositions();
   const ref = React.useRef(null);
   const [isShow, setIsShow] = React.useState(false);

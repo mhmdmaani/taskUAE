@@ -6,24 +6,26 @@ const StyledContainer = styled.div`
     height: 100%;
     width: 100%;
     text-align: left;
+    position: relative;
 `;
 const StyledCaption = styled.div`
   color: #8f8f8f;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 400;
 `;
 
 const StyledTitle = styled.div`
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #000;
     font-weight: 700;
-    width: 100%;
+    width: 65%;
+    min-width: 200px;
     margin-top: 2rem;
     margin-bottom: 2rem;
 `;
 const StyledDescription = styled.div`
-    font-size: 1.5rem;
-    line-height: 2.5rem;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
     color: #6d6d6d;
     font-weight: 400;
     width: 70%;
@@ -32,37 +34,51 @@ const StyledDescription = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: #2678ff10;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.5rem;
-  font-weight: 500;
+  min-width: 180px;
+  padding: 15px 24px;
   cursor: pointer;
-  padding: 20px 40px;
-  transition: all 0.3s ease;
-  color: #2678ff;
-  border-radius: 10px;
-  margin-top: 2rem;
-  &:hover {
-    background-color: #2678ff;
-    color: #fff;
+  font-family: 'Linik Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  position: relative;
+  text-align: center;
+  outline: none;
+  transition: all 0.2s ease-in-out 0s;
+  background-color: #eaf2ff;
+  border: 1px solid #eaf2ff;
+  border-radius: 6px;
+  color: #2678FF;
+  margin-top:1.5rem;
+  :hover {
+    background-color: #d4e4ff;
+    color: #0060ff;
   }
 `;
+
+
+const StyledSticky = styled.div`
+    position: sticky;
+    top: 200px;
+  `;
+
 function OurProcessSammury() {
   return (
     <StyledContainer>
-      <StyledCaption>Our Process</StyledCaption>
-      <StyledTitle>
-        From the market to your portfolio, here's how it all happens
-      </StyledTitle>
-      <StyledDescription>
-        We are a team of experienced professionals with a passion for technology
-        and a desire to help businesses grow. We are a team of experienced
-        professionals with a passion for technology and a desire to help
-        businesses grow.
-      </StyledDescription>
-      <StyledButton>Learn More</StyledButton>
+      <StyledSticky>
+        <StyledCaption>Our Process</StyledCaption>
+        <StyledTitle>
+          From the market to
+          <br /> your portfolio, here's
+          <br /> how it all happens
+        </StyledTitle>
+        <StyledDescription>
+          Only a handful of opportunities ever make it onto our platform.
+          Discover the steps an offering must go through to reach Finstreet
+          investors and what happens once it’s part of your portfolio.
+        </StyledDescription>
+        <StyledButton>Become a member</StyledButton>
+      </StyledSticky>
     </StyledContainer>
   );
 }
