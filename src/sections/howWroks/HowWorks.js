@@ -39,12 +39,20 @@ const items = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sapien mollis elit sit praesent facilisis vivamus at habitant. Neque, condimentum maecenas laoreet id.',
     number: '04',
   },
+
+  {
+    id: 5,
+    caption: '',
+    title: '',
+    description:
+      '',
+    number: '',
+  },
 ];
 
 const StyledContainer = styled.div`
   width: 100%;
-  height: calc(${(props) => (props.itemsLength-1) * 100}vh - 500px);
-  overflow: hidden;
+  height: calc(${(props) => (props.itemsLength-1) * 100}vh - 900px);
 `;
 
 const StyledFixedContainer = styled.div`
@@ -52,7 +60,7 @@ const StyledFixedContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,7 +123,7 @@ function HowWorks() {
               />
             </Grid>
             <Grid item lg={2} md={2} sm={12}>
-             <Numbers items={items} currentIndex={currentIndex} onScroll={onScrollToSection} />
+             <Numbers items={items} currentIndex={currentIndex} onScroll={onScrollToSection} isLast={currentIndex>=items.length-1} />
             </Grid>
           </Grid>
         </Container>

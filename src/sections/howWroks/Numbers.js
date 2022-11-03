@@ -56,7 +56,7 @@ const StyledIndicator = styled.div`
     display:none;
   }
 `;
-function Numbers({ items, currentIndex, onScroll }) {
+function Numbers({ items, currentIndex, onScroll, isLast }) {
   return (
     <StyledContainer>
       {items.map((c, index) => (
@@ -67,7 +67,7 @@ function Numbers({ items, currentIndex, onScroll }) {
           >
             {c.number}
           </StyledNumber>
-          <StyledIndicator current={index === currentIndex} />
+          {!isLast && <StyledIndicator current={index === currentIndex} />}
         </StyledContainer>
       ))}
     </StyledContainer>

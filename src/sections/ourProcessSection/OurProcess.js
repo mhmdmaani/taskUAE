@@ -4,7 +4,7 @@ import React, { useRef } from 'react'
 import OurProcessSammury from './LeftSection/OurProcessSammury';
 import Slider from './Slider/Slider';
 import TimelineItem from './timeline/TimelineItem';
-
+import styled from 'styled-components';
 
 const items = [
   {
@@ -48,10 +48,19 @@ const items = [
     number: '5',
   },
 ];
+
+
+
+const MainContainer = styled.div`
+  width: 100%;
+  margin-top: - 150vh;
+`;
+
 function OurProcess() {
    
     const ref=useRef(null);
   return (
+    <MainContainer>
     <Container >
       <Grid container>
         <Grid item xs={12} sm={12} md={6} lg={6}>
@@ -74,6 +83,7 @@ function OurProcess() {
         </Grid>
       </Grid>
     </Container>
+    </MainContainer>
   );
 }
 
