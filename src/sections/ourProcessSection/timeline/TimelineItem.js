@@ -29,51 +29,52 @@ const StyledContainer = styled.div`
    `;
 
     const StyledIndecatior = styled.div`
-      width: 40px;
-      height: 40px;
+      overflow: hidden;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background-color: #c3c3c3;
       color: #ffffff;
       position: absolute;
-      top: 20px;
-      left: -40px;
+      top: 26px;
+      left: -33px;
       display: flex;
       justify-content: center;
       align-items: center;
       transition: all 0.5s ease-in-out;
-      overflow: hidden;
+
       ::before {
-        content: '${(props) => props.number}';
+        content: '';
         position: absolute;
         display: flex;
         font-weight: 600;
         justify-content: center;
         align-items: center;
         top: ${(props) => (props.isStart ? '0' : '-100%')};
-        transition: all 0.5s ease-in;
+        transition: all 0.5s ease-in-out;
         left: 0;
-        width: 40px;
-        height: 40px;
-        z-index: 1;
+        width: 24px;
+        height: 24px;
+        
         background-color: #2276ff;
-        border-radius: 100%;
+       
       }
     `;
 
     const StyledLine = styled.div`
       width: 2px;
-      height: 110%;
+      height: 105%;
       background-color: #c3c3c3;
       position: absolute;
       left: -21px;
-      top: 20px;
+      top: 27px;
       overflow: hidden;
       ::after {
         content: '';
         width: 2px;
         background-color: #2276ff;
         height: ${(props) => props?.progress?.toFixed(0)||0}px;
-        transotion: all 2s ease-in-out;
+        transotion: all 0.5s ease-in-out;
         position: absolute;
         left: 0;
         top: 0;
@@ -104,7 +105,14 @@ const StyledContainer = styled.div`
       top: 1.7rem;
     `;
 
-
+  const StyledNumber= styled.div`
+    font-size: 1rem;
+    position: absolute;
+    top:calc(50% - 0.6rem);
+     width: 100%;
+     background-color: transparent;
+     z-index: 99;
+     `;
 
 function TimelineItem({title, number, description,caption, isLast}) {
      const {scrollY} = useWindowScrollPositions();   
@@ -146,7 +154,7 @@ function TimelineItem({title, number, description,caption, isLast}) {
           isStart={isStart}
           number={number}
         >
-          {number}
+          <StyledNumber>{number}</StyledNumber>
         </StyledIndecatior>
       </StyledIndecatorSection>
       <StyledDescription isStart={isStart}>
