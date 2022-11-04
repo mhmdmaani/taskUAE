@@ -4,12 +4,14 @@ import {useWindowScrollPositions} from '../../../hooks/useWindowScrollPosition';
 
 
 const StyledContainer = styled.div`
-  width: 100%;
   position: relative;
   padding-left: 100px;
   height: 100%;
-  padding-top:2.5rem
-  `;
+  padding-top: 2.5rem;
+   @media (max-width: 897px) {
+     padding-left: 2rem;
+  }
+`;
 
   const StyledIndecatorSection = styled.div`
     height: 100%;
@@ -89,20 +91,26 @@ const StyledContainer = styled.div`
       font-weight: 400;
       text-align: left;
       margin-top: 1rem;
-      paddiing-top: 2rem;
       padding-left: 1rem;
-      width: calc(100% - 150px);
+      width: calc(78%);
     `;
 
 
     const StyledCaption = styled.div`
       font-size: 1rem;
-      color:  #151515;
+      color: #151515;
       font-weight: 400;
       position: absolute;
       left: -150px;
-      width:100px;
+      width: 100px;
       top: 1.7rem;
+      @media (max-width: 897px) {
+        left: 1rem;
+        top: 0;
+        text-align: left;
+        width: 200px;
+        font-size: 0.8rem;
+      }
     `;
 
   const StyledNumber= styled.div`
@@ -118,7 +126,6 @@ function TimelineItem({title, number, description,caption, isLast}) {
      const {scrollY} = useWindowScrollPositions();   
      const ref = React.useRef(null);
      const indecatorRef = React.useRef(null);
-
 
         const [progress, setProgress] = React.useState(0);
         const [isStart, setIsStart] = React.useState(false);

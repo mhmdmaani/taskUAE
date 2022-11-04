@@ -22,6 +22,9 @@ const StyledContainer = styled.div`
   position: relative;
   min-height: 300px;
   min-width: 300px;
+  @media (max-width: 600px) {
+    min-width: auto;
+  }
 `;
 const StyledSection = styled.div`
   transform: ${props=>specifyTransform(props)};

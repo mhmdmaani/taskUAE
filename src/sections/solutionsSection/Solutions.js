@@ -4,7 +4,6 @@ import TransformedCard from '../../components/cards/TransformedCard';
 import FlipTitle from '../../components/flipTitle/FlipTitle';
 import styled from 'styled-components';
 
-
 const solutions = [
   {
     id: 1,
@@ -32,30 +31,29 @@ following years ..`,
   },
 ];
 
-
 const StyledTitle = styled.div`
-   width: 100%;
-    height: 100%;
-    font-size: 2.5rem;
-    font-weight: 700;
-`
-
+  width: 100%;
+  height: 100%;
+  font-size: 2.5rem;
+  font-weight: 700;
+`;
 
 const DescriptionText = styled.div`
-    width: 60%;
-    min-width: 300px;
-    height: 100%;
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: #9b9b9b;
-    text-align: center;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 4rem;
-`
-
-
+  width: 60%;
+  min-width: 300px;
+  height: 100%;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #9b9b9b;
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4rem;
+  @media (max-width: 600px) {
+    width: auto;
+  }
+`;
 
 function Solutions() {
   const [hoveredCard, setHoveredCard] = React.useState(null);
@@ -107,6 +105,7 @@ function Solutions() {
             lg={4}
             md={4}
             sm={12}
+            xs={12}
             padding={3}
             style={{ position: 'relative' }}
           >

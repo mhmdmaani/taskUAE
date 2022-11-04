@@ -8,7 +8,7 @@ const StyledContainer = styled.div`
   align-items: center;
   width: 100%;
   position: relative;
-  @media (max-width: 892px) {
+  @media (max-width: 897px) {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -32,7 +32,7 @@ const StyledNumber = styled.button`
     margin-right: 5px;
   }
   @media (max-width: 892px) {
-    font-size: 1rem;
+    font-size: 3rem;
     width: auto;
   }
 `;
@@ -53,9 +53,19 @@ const StyledIndicator = styled.div`
   }
   @media (max-width: 1024px) {
     transform: scaleX(${(props) => (props.current ? '2' : '0')});
-    display:none;
+    display: none;
   }
 `;
+
+const NumberRow= styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  `;
+
+
 function Numbers({ items, currentIndex, onScroll, isLast }) {
   return (
     <StyledContainer>
@@ -67,7 +77,7 @@ function Numbers({ items, currentIndex, onScroll, isLast }) {
           >
             {c.number}
           </StyledNumber>
-          {!isLast && <StyledIndicator current={index === currentIndex} />}
+          <StyledIndicator current={index === currentIndex} />
         </StyledContainer>
       ))}
     </StyledContainer>

@@ -18,7 +18,7 @@ const items = [
   {
     id: 2,
     caption: 'How it works',
-    title: 'Get access to the investing app',
+    title: 'Get access to our app',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sapien mollis elit sit praesent facilisis vivamus at habitant. Neque, condimentum maecenas laoreet id.',
     number: '02',
@@ -39,25 +39,16 @@ const items = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sapien mollis elit sit praesent facilisis vivamus at habitant. Neque, condimentum maecenas laoreet id.',
     number: '04',
   },
-
-  {
-    id: 5,
-    caption: '',
-    title: '',
-    description:
-      '',
-    number: '',
-  },
 ];
 
 const StyledContainer = styled.div`
   width: 100%;
-  overflow: hidden;
-  height: calc(${(props) => (props.itemsLength-1) * 100}vh - 900px);
+  height: calc(${(props) => (props.itemsLength-1) * 100}vh);
 `;
 
 const StyledFixedContainer = styled.div`
-  position: ${ (props) => props.isFixed ? 'fixed' : 'relative'};
+  position: sticky;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
@@ -114,8 +105,7 @@ function HowWorks() {
   return (
     <StyledContainer ref={ref} itemsLength={items.length}>
       <StyledFixedContainer isFixed={isShow && currentIndex>=0 && currentIndex<=items.length-1 }>
-    
-        <Container >
+         <Container>
           <Grid container >
             <Grid item lg={10} md={10} sm={12}>
               <Descriptions

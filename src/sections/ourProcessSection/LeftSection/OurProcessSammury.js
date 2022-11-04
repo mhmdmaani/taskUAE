@@ -22,6 +22,9 @@ const StyledTitle = styled.div`
     min-width: 200px;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    @media (max-width: 600px) {
+      min-width: auto;
+    }
 `;
 const StyledDescription = styled.div`
     font-size: 1.2rem;
@@ -53,6 +56,9 @@ const StyledButton = styled.button`
   :hover {
     background-color: #d4e4ff;
     color: #0060ff;
+  }
+  @media (max-width: 600px) {
+    min-width: auto;
   }
 `;
 

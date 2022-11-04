@@ -38,6 +38,10 @@ const StyledContainer = styled.div`
   overflow-x: hidden;
   margin-left: -2rem;
   margin-top: 2rem;
+    @media (max-width: 600px) {
+     min-width: auto;
+    }
+
 `;
 
 const StyledMainContainer = styled.div`

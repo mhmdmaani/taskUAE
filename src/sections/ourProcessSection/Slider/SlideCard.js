@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useWindowScrollPositions } from '../../../hooks/useWindowScrollPosition';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { useMediaQuery } from '@mui/material';
 
 const StyledContainer = styled.div`
   width: ${(props) => props.cardWidth}px;
@@ -100,7 +101,9 @@ function SlideCard({
   onGoPrev,
   itemsLength,
 }) {
-  const cardWidth = 250;
+    const isSm = useMediaQuery('(max-width: 600px)');
+
+  const cardWidth = isSm?150: 250;
   const dragStart = (e) => {
     e.stopPropagation();
     //  e.dataTransfer.setData('card_id', target.id);
