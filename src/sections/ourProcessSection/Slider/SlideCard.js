@@ -115,9 +115,7 @@ function SlideCard({
   };
   const { scrollY } = useWindowScrollPositions();
   const ref = React.useRef(null);
-
   const [isStart, setIsStart] = React.useState(false);
-  const [isLeft, setIsLeft] = React.useState(false);
 
   React.useEffect(() => {
     if (scrollY > ref.current.offsetTop) {
@@ -128,19 +126,26 @@ function SlideCard({
   }, [scrollY]);
 
   const handleGoNext = () => {
-    setIsLeft(false);
     onGoNext();
   };
 
   const handleGoPrev = () => {
-    setIsLeft(true);
     onGoPrev();
   };
+
+  const onTouch = ()=>{
+    if(currentSlide< itemsLength -2){
+        handleGoNext()
+    }else{
+        handleGoPrev()
+    }
+  }
   return (
     <StyledContainer
       draggable={true}
       onDragStart={dragStart}
       onDragOver={dragOver}
+      onTouchEnd={onTouch}
       isCurrent={currentSlide === index}
       current={currentSlide}
       cardWidth={cardWidth}

@@ -43,7 +43,7 @@ const items = [
 
 const StyledContainer = styled.div`
   width: 100%;
-  height: calc(${(props) => (props.itemsLength-1) * 100}vh);
+  height: calc(${(props) => (props.itemsLength - 1) * 100}vh);
 `;
 
 const StyledFixedContainer = styled.div`
@@ -60,15 +60,11 @@ const StyledFixedContainer = styled.div`
   transition: all 1s ease-in-out;
 `;
 
-
 function HowWorks() {
-
   const position = useWindowScrollPositions();
   const ref = React.useRef(null);
   const [isShow, setIsShow] = React.useState(false);
   const [currentIndex, setCurrentIndex] = React.useState(0);
-
-
 
   useEffect(() => {
     const threshold = 100;
@@ -76,37 +72,37 @@ function HowWorks() {
     const startingPoint = ref.current.offsetTop;
     const endingPoint = ref.current.scrollTop + ref.current.clientHeight;
     // check if the element is in the viewport
-    if (position.scrollY <= startingPoint || position.scrollY >= endingPoint - threshold) {
+    if (
+      position.scrollY <= startingPoint ||
+      position.scrollY >= endingPoint - threshold
+    ) {
       setIsShow(false);
     } else {
       const index = Math.floor(
-        (position.scrollY - startingPoint ) / (threshold * (items.length-1))
+        (position.scrollY - startingPoint) / (threshold * (items.length - 1))
       );
       if(index>=0 && index< items.length){
       setCurrentIndex(index);
-       setIsShow(true);
-      }else{
-        setIsShow(false);
       }
-     
+      //   setIsShow(true);
+      //   }else{
+      //  setIsShow(false);
+      // }
     }
   }, [position]);
-    
 
   const onScrollToSection = (index) => {
     setCurrentIndex(index);
-    const threshold = 150;
-       const startingPoint = ref.current.offsetTop;
-      
-         const scrollY = startingPoint + (ref.current.clientHeight/items.length) * index+threshold;
-  window.scrollTo(0, scrollY);
-
-  }
+  };
   return (
     <StyledContainer ref={ref} itemsLength={items.length}>
-      <StyledFixedContainer isFixed={isShow && currentIndex>=0 && currentIndex<=items.length-1 }>
-         <Container>
-          <Grid container >
+      <StyledFixedContainer
+        isFixed={
+          isShow && currentIndex >= 0 && currentIndex <= items.length - 1
+        }
+      >
+        <Container>
+          <Grid container>
             <Grid item lg={10} md={10} sm={12}>
               <Descriptions
                 items={items}
@@ -114,7 +110,12 @@ function HowWorks() {
               />
             </Grid>
             <Grid item lg={2} md={2} sm={12}>
-             <Numbers items={items} currentIndex={currentIndex} onScroll={onScrollToSection} isLast={currentIndex>=items.length-1} />
+              <Numbers
+                items={items}
+                currentIndex={currentIndex}
+                onScroll={onScrollToSection}
+                isLast={currentIndex >= items.length - 1}
+              />
             </Grid>
           </Grid>
         </Container>

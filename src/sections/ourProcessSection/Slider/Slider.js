@@ -79,7 +79,7 @@ function Slider({isStarted}) {
     const [currentSlide, setCurrentSlide] = React.useState(0);
    
    const onDragCard = (index) => {
-    if(index< 0 || index > items.length - 1) {
+    if(!index< 0 && !index > items.length - 1) {
     setCurrentSlide(currentSlide+1);
     }
    };
