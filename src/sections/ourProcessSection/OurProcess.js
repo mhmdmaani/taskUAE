@@ -34,8 +34,18 @@ const items = [
     id: 4,
     caption: 'Performance',
     title: 'Track and monitor your alternative portfolio',
-    description:
-      'Typically, prior to the end of an investments term, performance will be reported to investors along the way. For debt investments, interest payments are often paid out on a monthly or quarterly basis and for certain equity deals, income payments may also be made. Behind the scenes, Yieldstreet’s Portfolio & Risk Management Team constantly monitors the investments and identifies any performance that has changed from initial underwriting.',
+    description: (
+      <span>
+        Typically, prior to the end of an investments term, performance will be
+        reported to investors along the way.
+        <br /> <br /> For debt investments, interest payments are often paid out
+        on a monthly or quarterly basis and for certain equity deals, income
+        payments may also be made.
+        <br /> <br /> Behind the scenes, Yieldstreet’s Portfolio & Risk
+        Management Team constantly monitors the investments and identifies any
+        performance that has changed from initial underwriting.
+      </span>
+    ),
     number: '4',
   },
   {
@@ -43,8 +53,20 @@ const items = [
     caption: 'Repayment and maturity',
     title: 'Get more returns on your returns',
 
-    description:
-      'Whether a debt deal is maturing and the borrower is paying back principal or a commercial real estate property was just sold for a gain, after a successful investment your original principal and any associated gains will be returned to your Yieldstreet Wallet But, don’t let your money stay idle. One of the most important aspects to outperforming public markets is to keep your money invested and not to let it sit in cash. Consider investing in your next opportunity on Finstreet.',
+    description: (
+      <span>
+        Whether a debt deal is maturing and the borrower is paying back
+        principal or a commercial real estate property was just sold for a gain,
+        after a successful investment your original principal and any associated
+        gains will be returned to your Yieldstreet Wallet.
+        <br />
+        <br /> But, don’t let your money stay idle. One of the most important
+        aspects to outperforming public markets is to keep your money invested
+        and not to let it sit in cash.
+        <br />
+        <br /> Consider investing in your next opportunity on Finstreet.',
+      </span>
+    ),
     number: '5',
   },
 ];
@@ -58,6 +80,9 @@ const MainContainer = styled.div`
 const TimelineContainer = styled.div`
   width: 100%;
   margin-top: 340px;
+  @media (max-width: 600px) { 
+    margin-top: 4rem;
+  }
   `;
 
 function OurProcess() {

@@ -43,8 +43,9 @@ const items = [
 
 const StyledContainer = styled.div`
   width: 100%;
-  height: calc(${(props) => (props.itemsLength - 1) * 100}vh);
+  height: calc(${(props) => (props.itemsLength -1) * 100}vh);
 `;
+
 
 const StyledFixedContainer = styled.div`
   position: sticky;

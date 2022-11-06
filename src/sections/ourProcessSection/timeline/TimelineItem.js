@@ -92,7 +92,10 @@ const StyledContainer = styled.div`
       text-align: left;
       margin-top: 1rem;
       padding-left: 1rem;
-      width: calc(78%);
+      width: calc(100%);
+      @media (max-width: 897px) {
+        width: calc(100% - 2rem);
+      }
     `;
 
 
@@ -164,7 +167,7 @@ function TimelineItem({title, number, description,caption, isLast}) {
           <StyledNumber>{number}</StyledNumber>
         </StyledIndecatior>
       </StyledIndecatorSection>
-      <StyledDescription isStart={isStart}>
+      <StyledDescription isLast={isLast} isStart={isStart}>
         <StyledTitle isStart={isStart}>{title}</StyledTitle>
         {description}
       </StyledDescription>

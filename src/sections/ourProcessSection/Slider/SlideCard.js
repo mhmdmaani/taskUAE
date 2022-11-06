@@ -16,13 +16,20 @@ const StyledContainer = styled.div`
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
   transition: all 1s ease-in-out;
   filter: ${(props) => (props.isCurrent ? '' : 'blur(2.4px)')};
-  opacity: ${(props) => (props.index<props.current ? 0 : 1)};
+  opacity: ${(props) => (props.index < props.current ? 0 : 1)};
   transform: ${(props) =>
-    props.isCurrent===true
-      ?'scale3d(1,1,1)'
+    props.isCurrent === true
+      ? 'scale3d(1,1,1)'
       : `scale3d(${1 - props.index * 0.24},${1 - props.index * 0.24},${
           1 - props.index * 0.24
         })`};
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+     width:100%;
+    left: ${(props) => props.index * 10}%;
+    
+  }
 `;
 
 const StyledImage = styled.img`

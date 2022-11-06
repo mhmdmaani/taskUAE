@@ -12,6 +12,7 @@ function App() {
       <Solutions />
       <HowWorks />
       <OurProcess />
+      <div style={{padding:'5rem'}} ></div>
     </div>
   );
 }

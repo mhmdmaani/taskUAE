@@ -35,6 +35,9 @@ const StyledNumber = styled.button`
     font-size: 3rem;
     width: auto;
   }
+  @media (max-width: 600px) {
+    font-size: 1.8rem;
+  } 
 `;
 
 const StyledIndicator = styled.div`

@@ -40,6 +40,8 @@ const StyledContainer = styled.div`
   margin-top: 2rem;
     @media (max-width: 600px) {
      min-width: auto;
+     overflow-x: visible;
+     min-height: 450px;
     }
 
 `;
@@ -48,6 +50,9 @@ const StyledMainContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 0 2rem;
+  @media (max-width: 600px) {
+    width:auto;
+  }
 `;
 
 const MovableCards = styled.div`
@@ -70,6 +75,9 @@ const StyledDescription = styled.div`
   width: calc(100% - 50px);
   text-align: left;
   margin-bottom: 1rem;
+  @media (max-width: 600px) {
+    width: auto;
+  }
 `;
 
 function Slider({isStarted}) {

@@ -12,6 +12,9 @@ const StyledCaption = styled.div`
   color: #8f8f8f;
   font-size: 1.2rem;
   font-weight: 400;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
 
 const StyledTitle = styled.div`
@@ -24,16 +27,23 @@ const StyledTitle = styled.div`
     margin-bottom: 2rem;
     @media (max-width: 600px) {
       min-width: auto;
+      width:90%;
+      font-size: 1.5rem;
     }
 `;
 const StyledDescription = styled.div`
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-    color: #6d6d6d;
-    font-weight: 400;
-    width: 70%;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: #6d6d6d;
+  font-weight: 400;
+  width: 70%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  @media (max-width: 600px) {
+    min-width: auto;
+    width: 90%;
+    font-size: 1rem;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -66,6 +76,9 @@ const StyledButton = styled.button`
 const StyledSticky = styled.div`
     position: sticky;
     top: 200px;
+    @media (max-width: 600px) {
+     padding-top:6rem;
+    }
   `;
 
 function OurProcessSammury() {

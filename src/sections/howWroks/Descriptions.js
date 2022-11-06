@@ -47,6 +47,10 @@ const StyledCaption = styled.div`
     color: #000;
     margin-bottom:1.1rem;
     text-transform: uppercase;
+    @media (max-width: 600px) {
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
     `;
 
     const StyledSpacer = styled.div`
@@ -67,8 +71,16 @@ function Descriptions({ items, currentIndex }) {
           return 100;
       }
 
+      const spicfyDescriptionHeight =()=> {
+          if(isMed){
+              return 100;
+          }
+            if(isSm){
+                return  80;
+            }
+            return 150;
+      }
 
-     const flippedDescriptionHeight = isMed ? 150 : 150;
   return (
     <StyledContainer>
       <StyledCaption>{items[currentIndex].caption}</StyledCaption>
@@ -83,7 +95,7 @@ function Descriptions({ items, currentIndex }) {
       />
       <StyledSpacer />
       <MultipleFlipTitle
-        height={flippedDescriptionHeight}
+        height={spicfyDescriptionHeight()}
         texts={items.map((c) => ({
           id: c.id,
           text: <StyledDescription>{c.description}</StyledDescription>,
